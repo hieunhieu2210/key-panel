@@ -95,7 +95,7 @@ app.get('/', async (req, res) => {
       Trình duyệt của bạn không hỗ trợ video nền.
     </video>
     <div class="content">
-      <h2>Quản Lý Key</h2>
+      <h2>Quản Lý Key By WADUxMEOUS</h2>
       <table>
         <tr>
           <th>Key</th>
