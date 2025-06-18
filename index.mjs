@@ -16,7 +16,7 @@ const saveData = async (data) => await fs.writeJson(DATA_FILE, data, { spaces: 2
 app.get('/', async (req, res) => {
   const data = await loadData();
   const keys = data.keys;
-  let html = \`
+  let html = `
   <!DOCTYPE html>
   <html lang="vi">
   <head>
@@ -98,9 +98,9 @@ app.get('/', async (req, res) => {
       <h2>Quản Lý Key By WADUxMEOUS</h2>
 
       <form method="POST" action="/toggle-server" style="text-align:center; margin-bottom: 20px;">
-        <input type="hidden" name="enabled" value="\${data.serverEnabled ? 'false' : 'true'}">
-        <button type="submit" style="background-color: \${data.serverEnabled ? '#e74c3c' : '#2ecc71'}">
-          \${data.serverEnabled ? '🔒 Đóng Server' : '🔓 Mở Server'}
+        <input type="hidden" name="enabled" value="${data.serverEnabled ? 'false' : 'true'}">
+        <button type="submit" style="background-color: ${data.serverEnabled ? '#e74c3c' : '#2ecc71'}">
+          ${data.serverEnabled ? '🔒 Đóng Server' : '🔓 Mở Server'}
         </button>
       </form>
 
@@ -110,29 +110,29 @@ app.get('/', async (req, res) => {
           <th>Hết hạn</th>
           <th>Thiết bị</th>
           <th>Hành động</th>
-        </tr>\`;
+        </tr>`;
 
-  keys.forEach(k => {
-    const deviceStatus = k.deviceId ? '1/1' : '0/1';
-    html += \`
+keys.forEach(k => {
+  const deviceStatus = k.deviceId ? '1/1' : '0/1';
+  html += `
       <tr>
-        <td>\${k.key}</td>
-        <td>\${new Date(k.expiresAt).toLocaleString()}</td>
-        <td>\${deviceStatus}</td>
+        <td>${k.key}</td>
+        <td>${new Date(k.expiresAt).toLocaleString()}</td>
+        <td>${deviceStatus}</td>
         <td>
           <form class="inline" method="POST" action="/delete">
-            <input type="hidden" name="key" value="\${k.key}">
+            <input type="hidden" name="key" value="${k.key}">
             <button type="submit">🗑 Xóa</button>
           </form>
           <form class="inline" method="POST" action="/reset">
-            <input type="hidden" name="key" value="\${k.key}">
+            <input type="hidden" name="key" value="${k.key}">
             <button type="submit">♻️ Reset</button>
           </form>
         </td>
-      </tr>\`;
-  });
+      </tr>`;
+});
 
-  html += \`
+html += `
       </table>
       <form method="POST" action="/create" style="margin-top:20px;">
         <input type="number" name="days" placeholder="Hạn (ngày)" min="1" required>
@@ -140,10 +140,10 @@ app.get('/', async (req, res) => {
       </form>
     </div>
   </body>
-  </html>\`;
+  </html>`;
 
-  res.send(html);
-});
+res.send(html);
+
 
 app.post('/create', async (req, res) => {
   const data = await loadData();
