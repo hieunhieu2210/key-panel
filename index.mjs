@@ -90,10 +90,9 @@ app.get('/', async (req, res) => {
       }
     </style>
   </head>
-  <body>
-    <video class="bg-video" autoplay muted loop>
-      <source src="/background.mp4" type="video/mp4">
-    </video>
+ <video class="bg-video" autoplay muted loop playsinline>
+  <source src="/background.mp4" type="video/mp4">
+</video>
     <div class="content">
       <h2>Quản Lý Key By WADUxMEOUS</h2>
 
