@@ -143,6 +143,7 @@ html += `
   </html>`;
 
 res.send(html);
+});
 
 
 app.post('/create', async (req, res) => {
