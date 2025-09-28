@@ -1,0 +1,16 @@
+{
+  "name": "key-panel",
+  "version": "1.0.0",
+  "description": "Key panel API",
+  "main": "much.js",
+  "dependencies": {
+    "fastify": "^4.27.0",
+    "@fastify/cors": "^8.5.0",
+    "ws": "^8.18.0",
+    "express": "^4.19.2",
+    "body-parser": "^1.20.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
